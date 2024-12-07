@@ -1,3 +1,7 @@
-FROM postgres:latest
+FROM postgres:15
 
-COPY create_table.sql /docker-entrypoint-initdb.d/
+# Copy any initialization scripts if needed
+COPY *.sql /docker-entrypoint-initdb.d/
+
+# Expose the PostgreSQL port
+EXPOSE 5432
